@@ -1575,6 +1575,11 @@ namespace PnP.Core.Model.SharePoint
                 uriBuilder.AppendFormat("&refiners='{0}'", HttpUtility.UrlEncode(string.Join(",", query.RefineProperties)));
             }
 
+            if (query.RefinementFilters.Count > 0)
+            {
+                uriBuilder.AppendFormat("&refinementfilters='{0}'", HttpUtility.UrlEncode(string.Join(",", query.RefinementFilters)));
+            }
+
             if (!string.IsNullOrEmpty(query.ClientType))
             {
                 uriBuilder.AppendFormat("&clienttype='{0}'", query.ClientType);
